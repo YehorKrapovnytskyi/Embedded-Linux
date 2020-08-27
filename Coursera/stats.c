@@ -38,8 +38,8 @@ int compare_func(const void* a, const void* b)
 
 void print_array(const unsigned char* data, const unsigned int length)
 {
-    for (unsigned int i = 0; i < lenght; i++) {
-        printf("data[%d] = %d\n ", i, data[i]);
+    for (unsigned int i = 0; i < length; i++) {
+        printf("data[%d] = %d\n", i, data[i]);
     }
     return;
 }
@@ -47,14 +47,16 @@ void print_array(const unsigned char* data, const unsigned int length)
 
 unsigned char find_median(const unsigned char* data, const unsigned int length)
 {
-    return (data[length \ 2 + 1]);
+    unsigned char lhs = data[length / 2];
+    unsigned char rhs = data[length / 2 + 1];
+    return ((lhs + rhs) / 2);
 }
 
 
 unsigned char find_mean(const unsigned char* data, const unsigned int length)
 {
     unsigned int sum = 0;
-    for (unsigned int i = 0; i < lenght; i++) {
+    for (unsigned int i = 0; i < length; i++) {
         sum += data[i];
     }
     unsigned char result = sum / length;
@@ -91,8 +93,8 @@ void sort_array(unsigned char* data, const unsigned int length)
 void print_statistics(const unsigned char maximum, const unsigned char minimum,
     const unsigned char mean, const unsigned char median)
 {
-    printf("maximun is %d\n minimum is %d\n mean is %d\n median is %d\n",
-    maximum, minimum, mean, mode);
+    printf(" maximun is %d\n minimum is %d\n mean is %d\n median is %d\n",
+    maximum, minimum, mean, median);
     return;
 }
 
@@ -104,8 +106,19 @@ int main(void) {
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-  /* Statistics and Printing Functions Go Here */
+    unsigned char max = find_maximum(test,SIZE);
+    unsigned char min = find_minimum(test,SIZE);
+    unsigned char mean = find_mean(test,SIZE);
+
+    sort_array(test,SIZE);
+
+    print_array(test,SIZE);
+
+    unsigned char median = find_median(test,SIZE);
+
+    print_statistics(max,min,mean,median);
+
+
 
 
 }

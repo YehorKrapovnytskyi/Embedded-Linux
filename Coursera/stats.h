@@ -34,7 +34,7 @@
  *
  * @return void
  */
- void print_array(unsigned char* data, unsigned int length);
+ void print_array(const unsigned char* data, const unsigned int length);
 
  /**
   * @brief Given an array of data and a length, returns the median value
@@ -47,7 +47,7 @@
   *
   * @return unsigned char median data of array
   */
- unsigned char find_median(unsigned char* data, unsigned int length);
+ unsigned char find_median(const unsigned char* data, const unsigned int length);
 
  /**
   * @brief Given an array of data and a length, returns the mean value
@@ -60,7 +60,7 @@
   *
   * @return unsigned char mean of array
   */
- unsigned char find_mean(unsigned char* data, unsigned int length);
+ unsigned char find_mean(const unsigned char* data, const unsigned int length);
 
  /**
   * @brief Given an array of data and a length, returns the maximum value
@@ -73,7 +73,8 @@
   *
   * @return unsigned char maximum of array
   */
- unsigned char find_maximum(unsigned char* data, unsigned int length);
+ unsigned char find_maximum(const unsigned char* data,
+    const unsigned int length);
 
  /**
   * @brief Given an array of data and a length, returns the minumum value
@@ -86,20 +87,34 @@
   *
   * @return unsigned char minumum of array
   */
- unsigned char find_minimum(unsigned char* data, unsigned int length);
+ unsigned char find_minimum(const unsigned char* data,
+    const unsigned int length);
 
  /**
   * @brief Sorts the array from maximum to minumum
   *
   *
-  * The given array is sorted using buuble sort algorithm
+  * The given array is sorted using quick sort algorithm
   *
   *
   * @param An unsigned char array and its length
   *
   * @return void
   */
- void sort_array(unsigned char* data, unsigned int length);
+ void sort_array(unsigned char* data, const unsigned int length);
+
+ /**
+  * @brief A compare function for qsort
+  *
+  *
+  * Takes two void pointers as an input, converst into two unsigned char
+  * pointers and dereference them to compare two values
+  *
+  * @param two const void pointers
+  *
+  * @return integer 1 or 0 value
+  */
+  int compare_func(const void* a, const void* b);
 
  /**
   * @brief A function that prints the statistics of an array: minimum,
@@ -112,9 +127,9 @@
   *
   * @return void
   */
- void print_statistics(unsigned char maximum, unsigned char minimum,
-    unsigned char mean, unsigned char median);
 
+ void print_statistics(const unsigned char maximum, const unsigned char minimum,
+    const unsigned char mean, const unsigned char median);
 
 
 #endif /* __STATS_H__ */
